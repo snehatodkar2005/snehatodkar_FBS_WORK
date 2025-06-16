@@ -1,6 +1,6 @@
 void main()
 {
-	int start,end,rem;
+	int start,end;
 	int sum=0;
 	printf("enter the start and end value for sum");
 	scanf("%d%d",&start,&end);
