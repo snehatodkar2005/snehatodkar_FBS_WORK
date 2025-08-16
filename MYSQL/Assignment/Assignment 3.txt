@@ -1,0 +1,65 @@
+Q1. Write a SQL statement to insert a record as follows: 
+Employees :
+
+=>insert into employees(first_name,last_name,email,phone_number,hire_date,job_id,salary,commission,manager_id,department_id)values
+    ->("Steven","King","SKING","515.123.4567","1987-06-17","AD_PRES",24000,0,200,10),
+    -> ("Neena","Kochhar","NKOCHHAR","515.123.4568","1987-06-18","AD_VP",17000,0,200,10),
+    -> ("Lex","De Haan","LDEHAAN","515.123.4569","1987-06-19","AD_VP",17000,0,200,10),
+    -> ("Alexander","Hunold","AHUNOLD","590.423.4567","1987-06-20","IT_PROG",9000,0,103,60),
+    -> ("Bruce","Ernst","BERNST","590.423.4568","1987-06-21","IT_PROG",6000,0,103,60),
+    -> ("David","Austin","DAUSTIN","590.423.4569","1987-06-22","IT_PROG",4800,0,103,60),
+    -> ("Valli","Pataballa","VPATABAL","590.423.4560","1987-06-23","IT_PROG",4800,0,103,60),
+    -> ("Diana","Lorentz","DLORENTZ","590.423.5567","1987-06-24","IT_PROG",4200,0,114,30),
+    -> ("Nancy","Greenberg","NGREENBE","515.124.4569","1987-06-25","SA_MAN",12000,0,145,80),
+    -> ("Daniel","Faviet","DFAVIET","515.124.4169","1987-06-26","SA_MAN",9000,0,145,80);
+
+Department :
+
+insert into department values
+    ->(10,"Administration",200,1700),
+    -> (20,"Marketing",201,1800),
+    -> (30,"purchasing",114,1700),
+    -> (40,"Human Resources",203,2400),
+    -> (50,"Shipping",121,1500),
+    -> (60,"IT",103,1400),
+    -> (70,"Public Relations",204,2700),
+    -> (80,"Sales",145,2500);
+
+
+Q2.Write a SQL statement to insert 3 rows by a single insert statement. 
+
+=>insert into employees(first_name,last_name,email,phone_number,hire_date,job_id,salary,commission,manager_id,department_id)
+    -> values
+    -> ("Sneha","Todkar","STODKAR","590.423.4578","1987-06-27","IT_PROG",30000,0,201,20),
+    -> ("Sakshi","Kanojiya","SKANOJIYA","590.423.4579","1987-06-28","AD_VP",33000,0,103,60),
+    -> ("Yash","Todkar","YTODKAR","590.423.4570","1987-06-29","AD_PRES",36000,0,204,70);
+
+
+Q3.Write a SQL statement to insert one row in jobs table to ensure that no duplicate value will be entered in the job_id column.
+
+=> insert into jobs values("AD_PRES","HR",30000,60000);
+ERROR 1062 (23000): Duplicate entry 'AD_PRES' for key 'jobs.PRIMARY'
+
+
+Q4.Write SQL statement to increment salary of each emp by 10%.
+
+=>update employees set salary=(salary*0.1)+salary;
+
+
+Q5.Write a SQL statement to change the email column of employees table with 'not available' for those employees whose department_id is 80 and gets a 
+commission is less than .20%
+
+=>update employees set email="not available"
+   ->where department_id=80 and commission<0.20;
+
+
+Q6.Write a SQL statement to change the email column of employees table with 'not available' for those employees who belongs to the 'Purchasing' department. 
+
+=>update employees set email="not available"
+    ->where department_id=30;
+
+
+Q7.Write a SQL statement to change the email and commission_pct column of employees table with 'not available' and 0.10 for all employees.
+
+=>update employees set email="not available",
+    -> commission=0.10;
