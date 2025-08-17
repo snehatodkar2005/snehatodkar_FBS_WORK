@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+    <script>
+        function calci(op)
+        {
+        num1=parseInt(document.getElementById("inp1").value)
+        num2=parseInt(document.getElementById("inp2").value)
+        operator=""
+        if(op=='+')
+        {
+            res=num1+num2;
+            operator="addition"
+        }
+        else if(op=='-')
+        {
+            res=num1-num2;
+            operator="substraction"
+        }
+        else if(op=='*')
+        {
+            res=num1*num2;
+            operator="multiplication"
+        }
+        else
+        {
+            res=num1/num2;
+            operator="division"
+        }
+
+        document.getElementById("result").innerHTML = operator + " of " +num1+ " and " +num2+ " is " +res
+        }
+       
+
+    </script>
+
+</head>
+<body>
+    <label for="number1">enter 1st number</label>
+    <input type="text" id="inp1">
+    <br><br>
+    <label for="number2">enter 2nd number</label>
+    <input type="text" id="inp2">
+    <br><br>
+    <button onclick="calci('+')">Addition</button>
+    <button onclick="calci('-')">Substraction</button>
+    <button onclick="calci('*')">Multiplication</button>
+    <button onclick="calci('/')">Division</button>
+    <br><br>
+    <span id="result"></span>
+
+</body>
+</html>
